@@ -22,33 +22,3 @@ add_library(qt-easy-logger STATIC
 )
 
 target_link_libraries(qt-easy-logger PRIVATE Qt${QT_VERSION_MAJOR}::Widgets)
-
-# 只有顶层项目时才构建例子
-if(PROJECT_IS_TOP_LEVEL)
-    # Release 模式下也输出文件、函数
-    add_compile_definitions(QT_MESSAGELOGCONTEXT)
-
-    set(SAMPLE_SOURCES
-        main.cpp
-        samplewindow.cpp
-        samplewindow.h
-    )
-
-    if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
-        qt_add_executable(qt-easy-logger-sample
-            MANUAL_FINALIZATION
-            ${SAMPLE_SOURCES}
-        )
-    else()
-        add_executable(qt-easy-logger-sample
-            ${SAMPLE_SOURCES}
-        )
-    endif()
-
-    target_link_libraries(qt-easy-logger-sample PRIVATE qt-easy-logger)
-    target_link_libraries(qt-easy-logger-sample PRIVATE Qt${QT_VERSION_MAJOR}::Widgets)
-
-    if(QT_VERSION_MAJOR EQUAL 6)
-        qt_finalize_executable(qt-easy-logger-sample)
-    endif()
-endif()

@@ -12,9 +12,6 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Widgets)
 find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets)
 
-# Release 模式下也输出文件、函数
-add_compile_definitions(QT_MESSAGELOGCONTEXT)
-
 set(LIBRARY_SOURCES
     logger.h logger.cpp
     logview.h logview.cpp
@@ -28,6 +25,9 @@ target_link_libraries(qt-easy-logger PRIVATE Qt${QT_VERSION_MAJOR}::Widgets)
 
 # 只有顶层项目时才构建例子
 if(PROJECT_IS_TOP_LEVEL)
+    # Release 模式下也输出文件、函数
+    add_compile_definitions(QT_MESSAGELOGCONTEXT)
+
     set(SAMPLE_SOURCES
         main.cpp
         samplewindow.cpp

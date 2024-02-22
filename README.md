@@ -1,6 +1,6 @@
 # QtEasyLogger 简单易用的Qt格式化日志库
 
-> 运行使用例子请移步[qt-easy-logger-sample](https://github.com/hanjianqiao/qt-easy-logger-sample)
+> 运行使用示例请移步[qt-easy-logger-sample](https://github.com/hanjianqiao/qt-easy-logger-sample)
 
 ## 使用方式
 1. 在项目主路径下执行命令

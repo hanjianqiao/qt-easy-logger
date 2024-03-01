@@ -7,14 +7,19 @@
    ```bash
    git submodule add git@github.com:hanjianqiao/qt-easy-logger.git submodules/qt-easy-logger
    ```
-2. 修改CMakeLists.txt，添加下面指令
+2. 集成到项目
+2.1. 修改CMakeLists.txt，添加下面指令
    ```
    # 假设你的目标名称为：yourTarget
    add_subdirectory(submodules/qt-easy-logger)
    target_include_directories(yourTarget PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}/submodules")
    target_link_libraries(yourTarget PRIVATE qt-easy-logger)
    ```
-4. 调用`qInstallMessageHandler(h::Logger::messageHandler);`，即可启用功能。
+2.2. 修改Project.pro，添加以下代码
+   ```
+include(submodules/qt-easy-logger/qt-easy-logger.pri)
+   ```
+3. 调用`qInstallMessageHandler(h::Logger::messageHandler);`，即可启用功能。
 
 ## 例子
 ### 代码

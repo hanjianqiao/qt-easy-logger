@@ -8,6 +8,7 @@
    git submodule add git@github.com:hanjianqiao/qt-easy-logger.git submodules/qt-easy-logger
    ```
 2. 集成到项目
+   
    2.1. 修改CMakeLists.txt，添加下面指令
    ```
    # 假设你的目标名称为：yourTarget
@@ -19,7 +20,7 @@
    ```
    include(submodules/qt-easy-logger/qt-easy-logger.pri)
    ```
-3. 调用`qInstallMessageHandler(h::Logger::messageHandler);`，即可启用功能。
+4. 调用`qInstallMessageHandler(h::Logger::messageHandler);`，即可启用功能。
 
 ## 例子
 ### 代码

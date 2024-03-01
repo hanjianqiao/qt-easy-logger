@@ -17,7 +17,7 @@
    ```
 2.2. 修改Project.pro，添加以下代码
    ```
-include(submodules/qt-easy-logger/qt-easy-logger.pri)
+   include(submodules/qt-easy-logger/qt-easy-logger.pri)
    ```
 3. 调用`qInstallMessageHandler(h::Logger::messageHandler);`，即可启用功能。
 

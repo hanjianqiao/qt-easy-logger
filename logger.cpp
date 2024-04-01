@@ -4,6 +4,7 @@
 
 namespace h {
 LogView *Logger::s_logView = nullptr;
+int Logger::s_filePathSkipCharCount = 0;
 
 void Logger::openLogView(){
     if(!s_logView){
@@ -15,6 +16,10 @@ void Logger::openLogView(){
     }
     s_logView->show();
     s_logView->activateWindow();
+}
+
+void Logger::setFilePathSkipCharCount(int count){
+    s_filePathSkipCharCount = count;
 }
 
 void Logger::messageHandler(QtMsgType type, const QMessageLogContext &context, const QString &msg)
@@ -44,7 +49,7 @@ void Logger::messageHandler(QtMsgType type, const QMessageLogContext &context, c
             QDateTime::currentDateTime().toString(Qt::ISODate),
             typeStr,
             msg,
-            QString::fromStdString(file),
+            QString::fromStdString(file+s_filePathSkipCharCount),
             QString::number(context.line)
             );
         switch (type) {

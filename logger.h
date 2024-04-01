@@ -13,11 +13,13 @@ public:
 
     static Logger *instance();
     static void openLogView();
+    static void setFilePathSkipCharCount(int count);
 
 signals:
 
 private:
     static LogView *s_logView;
+    static int s_filePathSkipCharCount;
 };
 
 }
